@@ -36,13 +36,14 @@ python video_demo.py //비디오 example 생성
 ```
 python image_demo.py
 ```
-위 코드 실행시
+위 코드 실행시<br>
+
 ![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/9b2fe93d-de7c-44c1-bdaf-2bab69665a1d)
 
 ```
 python video_demo.py
 ``` 
-위 코드 실행시
+위 코드 실행시<br>
 ![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/698e3c58-b113-4760-9842-a3dd04850c63)
 
 위와 같은 결과가 나오면 examples 실행 성공입니다.
