@@ -4,6 +4,9 @@
 
 # OpenPose PyTorch
 **OpenPose api wrapper in PyTorch.**
+Whole-body (Body, Foot, Face, and Hands) 2D Pose Estimation
+
+OpenPose는 단일 이미지에서 인체, 손, 얼굴 및 발 키포인트(총 135개 키포인트)를 공동으로 감지하는 다중 사람 시스템을 나타냅니다.
 
 <br/><br/><br/>
 
