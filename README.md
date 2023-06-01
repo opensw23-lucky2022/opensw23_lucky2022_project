@@ -4,19 +4,20 @@
 
 # OpenPose PyTorch
 **OpenPose api wrapper in PyTorch.**
-<img align='right' height='100' src='https://github.com/prasunroy/openpose-pytorch/blob/master/assets/logo.png' />
 
-![badge](https://github.com/prasunroy/openpose-pytorch/blob/master/assets/badge_1.svg)
-![badge](https://github.com/prasunroy/openpose-pytorch/blob/master/assets/badge_2.svg)
+## 설치 방법
+#### 사전 준비
+Torch 를 깔아줍니다
+```
+pip3 install torch torchvision torchaudio
+```
 
-## Installation
-#### Prerequisites
-* Install [PyTorch](https://pytorch.org/get-started/locally/)
-#### Option 1: Install using pip
+
+#### Option 1: pip을 통해 설치
 ```
 pip install git+https://github.com/prasunroy/openpose-pytorch.git
 ```
-#### Option 2: Install from source
+#### Option 2: source를 통해 설치
 ```
 git clone https://github.com/prasunroy/openpose-pytorch.git
 cd openpose-pytorch
@@ -24,15 +25,17 @@ python setup.py install
 ```
 
 ## Running examples
+프로젝트 root에서 아래 command를 차례대로 실행합니다.
 ```
 cd examples
-python image_demo.py
-python video_demo.py
+python image_demo.py //사진 example 생성
+python video_demo.py //비디오 example 생성
 ```
 
 ## References
 * [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 * [PyTorch OpenPose](https://github.com/Hzzone/pytorch-openpose)
+* https://github.com/Team-Lucky2022/openpose_pytorch
 
 ## License
 * [OpenPose License](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/LICENSE)
@@ -41,4 +44,3 @@ python video_demo.py
 <br />
 <br />
 
-**Made with** :heart: **and** :pizza:
