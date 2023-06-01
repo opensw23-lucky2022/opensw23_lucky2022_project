@@ -5,7 +5,27 @@
 # OpenPose PyTorch
 **OpenPose api wrapper in PyTorch.**
 
-## 설치 방법
+<br/><br/><br/>
+
+## 목차
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Results](#results)
+* [Analysis/Visualization](#analysis-visualization)
+* [Team Introduction](#team-introduction)
+
+---
+
+## Requirements
+* Python 3.9.12
+
+module version
+* torch 1.12.1+cpu
+* cv2 4.7.0
+* 
+
+
+## Installation
 #### 사전 준비
 Torch 를 깔아줍니다
 ```
@@ -32,7 +52,7 @@ python image_demo.py //사진 example 생성
 python video_demo.py //비디오 example 생성
 ```
 
-## 결과
+## Results
 ```
 python image_demo.py
 ```
@@ -48,6 +68,11 @@ python video_demo.py
 
 위와 같은 결과가 나오면 examples 실행 성공입니다.
 
+---
+
+## Analysis Visualization
+* 
+
 ## References
 * [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 * [PyTorch OpenPose](https://github.com/Hzzone/pytorch-openpose)
@@ -56,6 +81,15 @@ python video_demo.py
 ## License
 * [OpenPose License](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/LICENSE)
 * [OpenPose PyTorch License](https://github.com/prasunroy/openpose-pytorch/blob/master/LICENSE)
+
+---
+
+## Team Introduction
+* 길윤빈 202211259 : 팀장
+* 박세준 2020 : 팀원
+* 장지은 202211363 : 팀원
+* 정소현 202211368 : 팀원
+
 
 <br />
 <br />
