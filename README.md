@@ -24,8 +24,8 @@ OpenPose는 단일 이미지에서 인체, 손, 얼굴 및 발 키포인트(총 
 
 module version
 * torch 1.12.1+cpu
-* cv2 4.7.0
-* 
+* torchvision 0.13.1+cpu 
+
 
 
 ## Installation
@@ -74,7 +74,6 @@ python video_demo.py
 ---
 
 ## Analysis Visualization
-* 
 
 ## References
 * [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
