@@ -1,0 +1,9 @@
+opencv-python==4.7.0.72
+openpose-pytorch==0.1.0
+torch==1.12.1
+torchvision==0.13.1
+Pillow==9.4.0
+imageio==2.30.0
+numpy
+scipy
+tqdm
