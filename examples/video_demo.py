@@ -7,7 +7,7 @@ from openpose.utils import draw_body_connections, draw_keypoints
 
 
 estimator = BodyPoseEstimator(pretrained=True)
-videoclip = cv2.VideoCapture('input/example.mp4')
+videoclip = cv2.VideoCapture('input/example.mp4') 
 
 while videoclip.isOpened():
     flag, frame = videoclip.read()
