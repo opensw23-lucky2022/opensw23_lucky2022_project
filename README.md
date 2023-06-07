@@ -22,9 +22,20 @@ OpenPose는 단일 이미지에서 인체, 손, 얼굴 및 발 키포인트(총 
 ## Requirements
 * Python 3.9.12
 
-module version
-* torch 1.12.1+cpu
-* torchvision 0.13.1+cpu 
+requirements.txt
+```
+opencv-python==4.7.0.72
+openpose-pytorch==0.1.0
+torch==1.12.1
+torchvision==0.13.1
+Pillow==9.4.0
+imageio==2.30.0
+numpy
+scipy
+tqdm
+datetime
+time
+```
 
 
 
@@ -34,18 +45,22 @@ Torch 를 깔아줍니다
 ```
 pip3 install torch torchvision torchaudio
 ```
+ ```
+ pip install -r requirements.txt
+ ```
 
 
-#### Option 1: pip을 통해 설치
+##### Option 1: pip을 통해 설치
 ```
 pip install git+https://github.com/prasunroy/openpose-pytorch.git
 ```
-#### Option 2: source를 통해 설치
+##### Option 2: source를 통해 설치
 ```
 git clone https://github.com/prasunroy/openpose-pytorch.git
 cd openpose-pytorch
 python setup.py install
 ```
+
 
 ## 실행 examples
 프로젝트 root에서 아래 command를 차례대로 실행합니다.
@@ -57,14 +72,14 @@ python video_demo.py //비디오 example 생성
 
 ## Results
 ```
-python image_demo.py
+python image_demo.py --image_filename example.jpg --save_option Y
 ```
 위 코드 실행시<br>
 
 ![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/9b2fe93d-de7c-44c1-bdaf-2bab69665a1d)
 
 ```
-python video_demo.py
+python video_demo.py --video_filename example.mp4 --save_option Y
 ``` 
 위 코드 실행시<br>
 ![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/698e3c58-b113-4760-9842-a3dd04850c63)
