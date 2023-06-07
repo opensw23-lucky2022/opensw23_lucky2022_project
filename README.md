@@ -78,14 +78,14 @@ python3 video.py --video_filename example.mp4 --save_option Y //비디오 exampl
 python이나 python3 둘다 해도 실행가능합니다
 ## Results
 ```
-python image_demo.py --image_filename example.jpg --save_option Y
+python image.py --image_filename example.jpg --save_option Y
 ```
 위 코드 실행시<br>
 
 ![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/9b2fe93d-de7c-44c1-bdaf-2bab69665a1d)
 
 ```
-python video_demo.py --video_filename example.mp4 --save_option Y
+python video.py --video_filename example.mp4 --save_option Y
 ``` 
 위 코드 실행시<br>
 ![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/698e3c58-b113-4760-9842-a3dd04850c63)
