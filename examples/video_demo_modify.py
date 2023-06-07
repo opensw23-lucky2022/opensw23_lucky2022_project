@@ -21,7 +21,7 @@ def human_pose(video_filename, save_option):
     fps    =(videoclip.get(cv2.CAP_PROP_FPS))
 
     frames = []
-    start = time.time()
+    #start = time.time()
     while videoclip.isOpened():
         flag, frame = videoclip.read()
         if not flag:
@@ -38,11 +38,11 @@ def human_pose(video_filename, save_option):
         cv2.imshow('Video Demo', frame)
         if cv2.waitKey(1) & 0xff == 27: # exit if pressed `ESC`
             break
-    end = time.time()
-    sec = end - start
-    result = datetime.timedelta(seconds=sec)
-    print(result, end='')
-    print(f",{sec:f} sec")
+    #end = time.time()
+    #sec = end - start
+    #result = datetime.timedelta(seconds=sec)
+    #print(result, end='')
+    #print(f"  ,{sec:f} sec")
     
     if(save_option == 'Y'):
         duration = 1000/fps
