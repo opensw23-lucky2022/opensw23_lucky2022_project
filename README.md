@@ -93,7 +93,7 @@ python video_demo.py --video_filename example.mp4 --save_option Y
 ## References
 * [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 * [PyTorch OpenPose](https://github.com/Hzzone/pytorch-openpose)
-* https://github.com/Team-Lucky2022/openpose_pytorch
+* https://github.com/prasunroy/openpose-pytorch
 
 ## License
 * [OpenPose License](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/LICENSE)
@@ -102,8 +102,8 @@ python video_demo.py --video_filename example.mp4 --save_option Y
 ---
 
 ## Team Introduction
-* 길윤빈 202211259 : 팀장
-* 박세준 202011295 : 팀원
+* 길윤빈 202211259 : 팀장 
+* 박세준 202011295 : 팀원 
 * 장지은 202211363 : 팀원
 * 정소현 202211368 : 팀원
 
