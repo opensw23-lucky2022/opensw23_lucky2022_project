@@ -6,9 +6,7 @@ from openpose.body.estimator import BodyPoseEstimator
 from openpose.utils import draw_body_connections, draw_keypoints
 
 import argparse
-
 import time
-
 import os
 
 MAX_WIDTH = 1000
@@ -32,11 +30,11 @@ def human_pose(image_filename, save_option):
     else:
         resized_image = image_src
      
-    start = time.time()
+    #start = time.time()
     keypoints = estimator(resized_image)
     image_dst = draw_body_connections(resized_image, keypoints, thickness=4, alpha=0.7)
     image_dst = draw_keypoints(image_dst, keypoints, radius=5, alpha=0.8)
-    end = time.time()
+    #end = time.time()
 
     if(save_option == 'Y'):
         cv2.imwrite("./output/" + image_filename.split('.')[0]+"_output.png",image_dst)
@@ -48,8 +46,8 @@ def human_pose(image_filename, save_option):
     cv2.destroyAllWindows()
     print("-> All the processes are done.")
 
-    sec = (end - start)
-    print(f"{sec:f} sec")
+    #sec = (end - start)
+    #print(f"{sec:f} sec")
 
 
     if(save_option == 'Y'):
