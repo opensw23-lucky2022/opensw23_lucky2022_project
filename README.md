@@ -66,8 +66,8 @@ python setup.py install
 프로젝트 root에서 아래 command를 차례대로 실행합니다.
 ```
 cd examples
-python image_demo.py //사진 example 생성
-python video_demo.py //비디오 example 생성
+python image.py --image_filename example.jpg --save_option Y //사진 example 생성
+python video.py --video_filename example.mp4 --save_option Y //비디오 example 생성
 ```
 
 ## Results
