@@ -69,7 +69,13 @@ cd examples
 python image.py --image_filename example.jpg --save_option Y //사진 example 생성
 python video.py --video_filename example.mp4 --save_option Y //비디오 example 생성
 ```
-
+OR
+```
+cd examples
+python3 image.py --image_filename example.jpg --save_option Y //사진 example 생성
+python3 video.py --video_filename example.mp4 --save_option Y //비디오 example 생성
+```
+python이나 python3 둘다 해도 실행가능합니다
 ## Results
 ```
 python image_demo.py --image_filename example.jpg --save_option Y
