@@ -37,7 +37,7 @@ def human_pose(image_filename, save_option):
     #end = time.time()
 
     if(save_option == 'Y'):
-        cv2.imwrite("./output/" + image_filename.split('.')[0]+"_output.png",image_dst)
+        cv2.imwrite("./output/" + image_filename.split('.')[0]+"_output.jpg",image_dst)
     
     while True:
         cv2.imshow('Image Demo', image_dst)
