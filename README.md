@@ -255,6 +255,8 @@ height, width, _ = image_src.shape
 ## Suggestion
 * 이미지에서 다수의 인원을 한 인물의 관절로 이어버리는 문제 개선 필요
 
+## Presentation
+https://www.youtube.com/watch?v=oT63WAD7SWk&ab_channel=%EB%B0%95%EC%84%B8%EC%A4%80
 
 ---
 ## References
