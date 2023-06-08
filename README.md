@@ -10,8 +10,8 @@
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Analysis](#analysis)
-* [Visualization](#visualization)
 * [Results/Results Analysis](#results-results-analysis)
+* [Visualization](#visualization)
 * [Team Introduction](#team-introduction)
 
 ---
