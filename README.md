@@ -245,6 +245,7 @@ height, width, _ = image_src.shape
 * [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 * [PyTorch OpenPose](https://github.com/Hzzone/pytorch-openpose)
 * https://github.com/prasunroy/openpose-pytorch
+* 자세한 보고서 내용은 <>
 
 ## License
 * [OpenPose License](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/LICENSE)
