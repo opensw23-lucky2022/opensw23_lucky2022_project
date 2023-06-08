@@ -158,16 +158,19 @@ python이나 python3 둘다 해도 실행가능
 *  결과분석
 
 #### <실행결과_image>
-![스크린샷 2023-06-07 183230](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/cc5573b1-43ee-4358-a904-4735b7bea3fc)
-![스크린샷 2023-06-07 183307](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/e74092f4-e41d-4989-8271-f767a2beb25d)
-![스크린샷 2023-06-07 183507](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/4244410d-3f82-442c-b4a9-92c522c6a644)
-![스크린샷 2023-06-07 183531](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/8f05f77f-899c-4b12-af48-b9488abd1b03)
-![people_about_37_output](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/4cc56c11-a8b9-4c6e-b9cb-5441026ded7b)
-(37명)
+![스크린샷 2023-06-08 224926](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/6283891b-600f-42a9-8528-f63c63e909bb)
+![스크린샷 2023-06-08 224916](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/c17c671e-a143-43eb-89a4-1dab9657639c)
+![스크린샷 2023-06-08 224909](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/f98a86fc-7e45-454f-9995-cb180aef862f)
+![스크린샷 2023-06-08 225601](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/28a27f19-9e62-4deb-8cfa-6b760fcff176)
+
+(31명)
 
 #### <실행결과>
-![스크린샷 2023-06-07 171511](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/7b7cc23e-7144-4eb9-a25e-c3a1bcac2b85)
-![스크린샷 2023-06-07 164451](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/8d6c47c6-7b59-4056-9449-3dd2979a8ee9)
+![스크린샷 2023-06-08 222443](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/2f4af0a1-f8f2-40f3-8ede-fae10c48d6a5)
+
+(노란색: 사진 속 인물들의 수,  선홍색: 시행횟수,  주황색: 평균 프로그램 런타임)
+
+![스크린샷 2023-06-08 223532](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/458e6383-2f7f-40ef-92e1-6ba9cb29e91c)
 
 (노란색: 사진 속 인물들의 수,  선홍색: 시행횟수,  주황색: 평균 프로그램 런타임)
 
@@ -188,11 +191,13 @@ python이나 python3 둘다 해도 실행가능
 * 결과분석
 
 #### <실행결과>
-![스크린샷 2023-06-07 205302](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/cf29f449-d544-453b-b702-5b13b998b912)
+![스크린샷 2023-06-08 224606](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/69010b9e-caba-4838-8e15-3cb24c49afe3)
 
 (노란색: 동영상 속 인물들의 수,  초록록색: 시행횟수,  주황색: 평균 프로그램 런타임)
 
-![스크린샷 2023-06-07 210040](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/f4a6a1a8-deff-4bd4-abd8-f566265d2c55)
+![스크린샷 2023-06-08 224251](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/481f160a-7eac-48ba-a08a-d0404f0d4016)
+
+
 ![스크린샷 2023-06-07 212033](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/710aaafd-5bbd-4612-b908-ad68c9b64177)
 
 #### <실행결과 분석> 
