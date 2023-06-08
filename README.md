@@ -129,31 +129,38 @@ python video.py --video_filename example.mp4 --save_option Y
 
 ## Analysis(openpose 코드 분석)
 
-1) 주요 파일들
-  |
-  |-- main 실행 파일
-  |     |-- 사용자 인터페이스 관리
-  |     |-- 인자 처리 및 실행 설정
-  |
-  |-- body/estimator.py
-  |     |-- 신체 키포트 추정 기능
-  |
-  |-- body/model.py
-  |     |-- 관절 각 추정 모델 정의
-  |
-  |-- utils.py
-        |-- 공통 기능 제공
-                |-- 배열 조작
-                |-- FPS 계산
+주요 파일들
 
-2) 코드 추가 부분
   |
-  |-- 터미널에서 파일명 보이기
-  |     |-- argparse 사용하여 입력 파일 이름 명시
-  |     |-- '--image_filename' 및 '--save_option' 설정 추가
+  
+  |-- main 실행 파일
+  
+  |     |-- 사용자 인터페이스 관리
+  
+  |     |-- 인자 처리 및 실행 설정
+  
   |
-  |-- Output 사진 폴더에 저장
-        |-- 시각화된 이미지 저장 요청 처리
+  
+  |-- body/estimator.py
+  
+  |     |-- 신체 키포트 추정 기능
+  
+  |
+  
+  |-- body/model.py
+  
+  |     |-- 관절 각 추정 모델 정의
+  
+  |
+  
+  |-- utils.py
+  
+       |-- 공통 기능 제공
+        
+              |-- 배열 조작
+                
+              |-- FPS 계산
+                
 
 ---
 ## Visualization
