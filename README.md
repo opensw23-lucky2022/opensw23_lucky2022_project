@@ -128,96 +128,38 @@ python video.py --video_filename example.mp4 --save_option Y
 ---
 
 ## Analysis(openpose 코드 분석)
-### 1. openpose 파일: openposw 프로젝트의 주 실행 파일, 사용자 인터페이스와 인자 처리 담당, 사용자가 입력한 설정에 따라 실행 
-#### 1) body/estimator.py
-신체 키포인트를 추정하는 핵심 기능.
 
-**_pad_image**: 입력 이미지 패딩, 비율 유지, 스트라이드, 패드 밸류 고려
+1) 주요 파일들
+  |
+  |-- main 실행 파일
+  |     |-- 사용자 인터페이스 관리
+  |     |-- 인자 처리 및 실행 설정
+  |
+  |-- body/estimator.py
+  |     |-- 신체 키포트 추정 기능
+  |
+  |-- body/model.py
+  |     |-- 관절 각 추정 모델 정의
+  |
+  |-- utils.py
+        |-- 공통 기능 제공
+                |-- 배열 조작
+                |-- FPS 계산
 
-**_get_keypoint**: 후보 키포인트, 서브셋 구성으로 최종 키포인트 좌표 생성
+2) 코드 추가 부분
+  |
+  |-- 터미널에서 파일명 보이기
+  |     |-- argparse 사용하여 입력 파일 이름 명시
+  |     |-- '--image_filename' 및 '--save_option' 설정 추가
+  |
+  |-- Output 사진 폴더에 저장
+        |-- 시각화된 이미지 저장 요청 처리
 
-**class BodyPoseEstimator(object)**:
-
-OpenPose 딥 러닝 아키텍처를 사용하여 이미지에서 인체 자세를 추정,
-모델 초기화, 이미지 전처리, 딥러닝 아키텍처에 이미지 전달하는 클래스, 모델 출력은 키포인트 위치와 히트맵, PAFs로 구성
-평균화된 히트맵에서 각 키포인트의 피크를 추출, 임계값을 적용한 후 최종 키포인트를 구성 -> PAF를 사용하여 감지된 키포인트 간의 연결 형성 -> 감지된 키포인트 연결을 서브셋 배열로 구성하여 입력 이미지에서 발견된 가능한 인간 자세 나타냄 
-
-**__init__**: 토치 모듈 상속, 사전 학습된 모듈을 사용할 수 있도록 함
-
-**estimate**: 이미지 전처리, 스케일로 크기를 조정하고 패딩을 적용
-
-**_pad_image**: 이미지를 전처리하고 패딩을 추가하는 데 사용, 결과 이미지는 모델을 통과할 때 잡음이 줄어든 것으로 인식
-
-**body_part_heatmaps, pafs = self(*preprocessed_images)**: 전처리된 이미지가 모델에 전달된 후 중요한 결과인 신체 부위의 히트맵과 PAF(경로 밀도 필드) 반환
-
-**body_part_candidates_list,body_parts_subset_list=self._get_keypoints(heatmaps=body_part_heatmaps, pafs=pafs)**: 신체부위 히트맵과 PAF를 사용하여 실제 신체부위   키포인트 연결을 산출
-
-**return body_parts_subset_list, body_part_candidates_list**: 클래스의 출력 값, 좌표로 구성된 키포인트 배열, 이 배열을 이용하여 감지된 인간 자세를 시각화하거나 분석가능
- 
-#### 2) body/model.py
-pose estimation(관절 각 추정)을 위한 모델을 정의.
-바른 구조(coco, mpi, body_25)에 따라 키 포린트의 개수와 연결 관계 정의
-모델에 대한 정보 저장, 텐서를 생성하여 body/estimator.py에 전달
-#### 3) utils.py
-프로젝트 내에서 공통으로 사용되는 배열조작, FPS 계산 등의 기능을 제공
-
-draw_keypoints, draw_body_connections: 이미지에 키 포인트와 관절 연결을 그림
-
-draw_keypoints: 원본 이미지를 복사하여 새로운 이미지(overlay)생성
-
-for kp inkeypoints: for x,y,v in kp: x,y는 좌표이며 v는 표시 여부, 키포인트를 반복하면서 표시 여부가 True인 곳에 cv2의 circle을 이용하여 원을 그린 후 addWeighred를 사용하여 overlay와 원본이미지를 결합하여 return
-
-draw_body_connections: 원본 이미지 복사하여 새로운 이미지(overlay)생성.
-
-b_conn: 몸체, h_conn: 머리, l_conn: 왼쪽 상반신, r_conn: 오른쪽 상반신 으로 나누어 연결선 간에 어떤 키포인트 연결해야 하는지 정의
-
-_draw_connection으로 각 정의된 부분 연결
-
-addWeighted로 원본 이미지와 결합 후 반환
-
-draw_face_connections, draw_hand_connections: 아직 구현 안됐으므로 에러 발생
-
-_draw_connection 함수 (helper 함수): x1, y1, v1 = point1 / x2, y2 v2 = point2: 시작점과 끝점의 x, y 좌표 및 표시 여부를 각각 저장
-
-if v1 and v2: 시작점과 끝점의 표시 여부가 모두 True일 때만 선을 그림.
-
-cv2의 line을 이용하여 이미지에 시작점에서 끝점까지 선을 그림. 그려진 이미지 return 
-
-### 2. 실행파일 (demo.py 분석)
-1) 필요 라이브러리, 모듈 import:  cv2로 이미지 처리, estimator.py의 BodyPoseEstimator 클래스를 불러와 신체 키 포인트 추정에 사용, utils.py의 draw_keypoints/draw_body_connections를 불러와 이미지 위에 키포인트와 관절 연결을 그림
-2) BodyPoseEstimator 객체 생성: 키포인트 추정에 필요한 BodyPoseEstimator 객체를 생성. 이때 사전 훈련된 가중치를 사용하도록 설정(pretrained=True)
-3) 이미지 불러오기: cv2의 imread를 사용하여 입력 이미지를 불러와 image_src에 저장
-4) 키포인트 추정: BodyPoseEstimator 객체를 사용하여 이미지에서 키포인트를 찾고, 결과를 keypoints에 저장
-5) 관절 연결 그리기: draw_body_connections 함수 사용, 파라미터로 두께 4, 투명도 0.7로 주어 이미지 위에 관절 연결을 그림.
-6) 키포인트 그리기: draw_keypoints 함수 사용, 파라미터로 반지름 5, 투명도 0.8로 주어 키포인트를 이미지 위에 그림.
-7) 결과 이미지 표시와 저장: cv2의 imshow, waitkey를 통해 생성된 이미지를 화면에 보여줌.
 
 
 ---
 ## Visualization
-코드 추가 부분(visualizations)
 
-1. 터미널에서 파일명 보이기
-수정 부분: requirement.txt 추가, examples에 input, output 파일 추가, 터미널창 –image_filename추가
-코드 설명: 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--image_filename', required=True, help='File name of video')
-    parser.add_argument('--save_option', required=True, help='Whether to save output as JPG(Answer in Y/N)')
-
-    args = parser.parse_args()
-
-    human_pose(args.image_filename, args.save_option)
-    
-import argparse를 통해 argparse를 불러와 parser의 add_addargument를 사용하여 –image_filename, –save_option 설정을 추가한다. 
-
-2. output 사진 폴더에 저장
-수정 부분: requirement.txt 추가, examples에 input, output 파일 추가, 터미널창 –save_option 추가
-코드 설명:
-if(save_option == 'Y'):
-        cv2.imwrite("./output/" + image_filename.split('.')[0]+"_output.png",image_dst)
-
- 원래의 repository 코드는 단순히 시각화 된 이미지를 보여주기만 하고 저장하지 않는다. 따라서 시각화 된 이미지가 필요에 따라 저장되도록 하기 위해서 save_option을 추가하고, 해당 옵션이 설정되어 있으면 cv2의 imwrite를 이용하여 output파일 경로에 해당 결과물을 저장하도록 변경하였다.
 
 
 ---
