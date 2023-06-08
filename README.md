@@ -109,100 +109,36 @@ python3 image.py --image_filename example.jpg --save_option Y //사진 example �
 python3 video.py --video_filename example.mp4 --save_option Y //비디오 example 생성
 ```
 python이나 python3 둘다 해도 실행가능
-## Results
-```
-python image.py --image_filename example.jpg --save_option Y
-```
-위 코드 실행시<br>
 
-![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/9b2fe93d-de7c-44c1-bdaf-2bab69665a1d)
-
-```
-python video.py --video_filename example.mp4 --save_option Y
-``` 
-위 코드 실행시<br>
-![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/698e3c58-b113-4760-9842-a3dd04850c63)
-
-위와 같은 결과가 나오면 examples 실행 성공
-
----
 
 ## Analysis(openpose 코드 분석)
 
-주요 파일들
-
+1) 주요 파일들
   |
-  
   |-- main 실행 파일
-  
   |     |-- 사용자 인터페이스 관리
-  
   |     |-- 인자 처리 및 실행 설정
-  
   |
-  
   |-- body/estimator.py
-  
   |     |-- 신체 키포트 추정 기능
-  
   |
-  
   |-- body/model.py
-  
   |     |-- 관절 각 추정 모델 정의
-  
   |
-  
   |-- utils.py
-  
-       |-- 공통 기능 제공
-        
-              |-- 배열 조작
-                
-              |-- FPS 계산
-                
+        |-- 공통 기능 제공
+                |-- 배열 조작
+                |-- FPS 계산
 
----
-## Visualization
-(1) 터미널에서 파일명 보이기
-수정 부분: requirement.txt 추가, examples에 input, output 파일 추가, 터미널창 –image_filename추가
-코드 설명: 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--image_filename', required=True, help='File name of video')
-    parser.add_argument('--save_option', required=True, help='Whether to save output as JPG(Answer in Y/N)')
+2) 코드 추가 부분
+  |
+  |-- 터미널에서 파일명 보이기
+  |     |-- argparse 사용하여 입력 파일 이름 명시
+  |     |-- '--image_filename' 및 '--save_option' 설정 추가
+  |
+  |-- Output 사진 폴더에 저장
+        |-- 시각화된 이미지 저장 요청 처리
 
-    args = parser.parse_args()
-
-    human_pose(args.image_filename, args.save_option)
-
-
-
-import argparse를 통해 argparse를 불러와 parser의 add_addargument를 사용하여 –image_filename, –save_option 설정을 추가한다. 
-
-(2) output 사진 폴더에 저장
-수정 부분: requirement.txt 추가, examples에 input, output 파일 추가, 터미널창 –save_option 추가
-코드 설명:
-if(save_option == 'Y'):
-        cv2.imwrite("./output/" + image_filename.split('.')[0]+"_output.png",image_dst)
-
- 원래의 repository 코드는 단순히 시각화 된 이미지를 보여주기만 하고 저장하지 않는다. 따라서 시각화 된 이미지가 필요에 따라 저장되도록 하기 위해서 save_option을 추가하고, 해당 옵션이 설정되어 있으면 cv2의 imwrite를 이용하여 output파일 경로에 해당 결과물을 저장하도록 변경하였다.
-
-(3) 이미지 파일 크기 조정
-MAX_WIDTH = 1000
-MAX_HEIGHT = 1000
-image_src = cv2.imread(image_dir)
-height, width, _ = image_src.shape
-
-    if width > MAX_WIDTH or height > MAX_HEIGHT:
-        scale = min(MAX_WIDTH/width, MAX_HEIGHT/height)
-        resized_width = int(width*scale)
-        resized_height = int(height*scale)
-        resized_image = cv2.resize(image_src, (resized_width, resized_height))
-    else:
-        resized_image = image_src
-
-원래의 repository 코드는 입력받은 이미지 크기를 조정하지 않고 사용하기때문에 이미지가 크기가 너무 큰 경우 output결과 팝업창에서 사진이 잘려보이는 경우가 발생하였다. 이를 방지하기 위해 cv2의 resize를 이용하여 사진크기에 제한을 두도록 변경하였다.
 
 
 
@@ -271,6 +207,47 @@ height, width, _ = image_src.shape
 두 그래프를 통해 유의미한 결과를 얻지 못했는데 이는 동영상의 용량을 통일하지 못했기 때문으로 추정한다. 그러나 동영상의 인물들의 수보다는, 용량의 크기가 프로그램의 런타임의 크기에 더 영향을 미치는 것을 알 수 있다.
 
 
+---
+## Visualization (코드 추가 부분)
+### (1) 터미널에서 파일명 보이기
+* 수정 부분: requirement.txt 추가, examples에 input, output 파일 추가, 터미널창 –image_filename추가. 
+* 코드 설명: import argparse를 통해 argparse를 불러와 parser의 add_addargument를 사용하여 –image_filename, –save_option 설정을 추가한다. 
+
+```
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--image_filename', required=True, help='File name of video')
+    parser.add_argument('--save_option', required=True, help='Whether to save output as JPG(Answer in Y/N)')
+
+    args = parser.parse_args()
+
+    human_pose(args.image_filename, args.save_option)
+```
+### (2)output 사진 폴더에 저장
+* 수정 부분: requirement.txt 추가, examples에 input, output 파일 추가, 터미널창 –save_option 추가
+* 코드 설명:  원래의 repository 코드는 단순히 시각화 된 이미지를 보여주기만 하고 저장하지 않는다. 따라서 시각화 된 이미지가 필요에 따라 저장되도록 하기 위해서 save_option을 추가하고, 해당 옵션이 설정되어 있으면 cv2의 imwrite를 이용하여 output파일 경로에 해당 결과물을 저장하도록 변경하였다.
+
+```
+if(save_option == 'Y'):
+        cv2.imwrite("./output/" + image_filename.split('.')[0]+"_output.png",image_dst)
+```
+### (3) 이미지 파일 크기 조정
+* 코드 설명: 원래의 repository 코드는 입력받은 이미지 크기를 조정하지 않고 사용하기때문에 이미지가 크기가 너무 큰 경우 output결과 팝업창에서 사진이 잘려보이는 경우가 발생하였다. 이를 방지하기 위해 cv2의 resize를 이용하여 사진크기에 제한을 두도록 변경하였다.
+
+```
+MAX_WIDTH = 1000
+MAX_HEIGHT = 1000
+image_src = cv2.imread(image_dir)
+height, width, _ = image_src.shape
+
+    if width > MAX_WIDTH or height > MAX_HEIGHT:
+        scale = min(MAX_WIDTH/width, MAX_HEIGHT/height)
+        resized_width = int(width*scale)
+        resized_height = int(height*scale)
+        resized_image = cv2.resize(image_src, (resized_width, resized_height))
+    else:
+        resized_image = image_src
+```
 
 ---
 ## References
