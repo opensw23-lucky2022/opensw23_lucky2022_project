@@ -131,18 +131,27 @@ python video.py --video_filename example.mp4 --save_option Y
 ### 1. openpose 파일: openposw 프로젝트의 주 실행 파일, 사용자 인터페이스와 인자 처리 담당, 사용자가 입력한 설정에 따라 실행 
 #### 1) body/estimator.py
 신체 키포인트를 추정하는 핵심 기능.
+
 **_pad_image**: 입력 이미지 패딩, 비율 유지, 스트라이드, 패드 밸류 고려
+
 **_get_keypoint**: 후보 키포인트, 서브셋 구성으로 최종 키포인트 좌표 생성
 
 **class BodyPoseEstimator(object)**:
+
 OpenPose 딥 러닝 아키텍처를 사용하여 이미지에서 인체 자세를 추정,
 모델 초기화, 이미지 전처리, 딥러닝 아키텍처에 이미지 전달하는 클래스, 모델 출력은 키포인트 위치와 히트맵, PAFs로 구성
-평균화된 히트맵에서 각 키포인트의 피크를 추출, 임계값을 적용한 후 최종 키포인트를 구성 -> PAF를 사용하여 감지된 키포인트 간의 연결 형성 -> 감지된 키포인트 연결을 서브셋 배열로 구성하여 입력 이미지에서 발견된 가능한 인간 자세 나타냄                                                                        
+평균화된 히트맵에서 각 키포인트의 피크를 추출, 임계값을 적용한 후 최종 키포인트를 구성 -> PAF를 사용하여 감지된 키포인트 간의 연결 형성 -> 감지된 키포인트 연결을 서브셋 배열로 구성하여 입력 이미지에서 발견된 가능한 인간 자세 나타냄 
+
 **__init__**: 토치 모듈 상속, 사전 학습된 모듈을 사용할 수 있도록 함
+
 **estimate**: 이미지 전처리, 스케일로 크기를 조정하고 패딩을 적용
+
 **_pad_image**: 이미지를 전처리하고 패딩을 추가하는 데 사용, 결과 이미지는 모델을 통과할 때 잡음이 줄어든 것으로 인식
+
 **body_part_heatmaps, pafs = self(*preprocessed_images)**: 전처리된 이미지가 모델에 전달된 후 중요한 결과인 신체 부위의 히트맵과 PAF(경로 밀도 필드) 반환
+
 **body_part_candidates_list,body_parts_subset_list=self._get_keypoints(heatmaps=body_part_heatmaps, pafs=pafs)**: 신체부위 히트맵과 PAF를 사용하여 실제 신체부위   키포인트 연결을 산출
+
 **return body_parts_subset_list, body_part_candidates_list**: 클래스의 출력 값, 좌표로 구성된 키포인트 배열, 이 배열을 이용하여 감지된 인간 자세를 시각화하거나 분석가능
  
 #### 2) body/model.py
@@ -151,18 +160,28 @@ pose estimation(관절 각 추정)을 위한 모델을 정의.
 모델에 대한 정보 저장, 텐서를 생성하여 body/estimator.py에 전달
 #### 3) utils.py
 프로젝트 내에서 공통으로 사용되는 배열조작, FPS 계산 등의 기능을 제공
+
 draw_keypoints, draw_body_connections: 이미지에 키 포인트와 관절 연결을 그림
+
 draw_keypoints: 원본 이미지를 복사하여 새로운 이미지(overlay)생성
+
 for kp inkeypoints: for x,y,v in kp: x,y는 좌표이며 v는 표시 여부, 키포인트를 반복하면서 표시 여부가 True인 곳에 cv2의 circle을 이용하여 원을 그린 후 addWeighred를 사용하여 overlay와 원본이미지를 결합하여 return
+
 draw_body_connections: 원본 이미지 복사하여 새로운 이미지(overlay)생성.
+
 b_conn: 몸체, h_conn: 머리, l_conn: 왼쪽 상반신, r_conn: 오른쪽 상반신 으로 나누어 연결선 간에 어떤 키포인트 연결해야 하는지 정의
+
 _draw_connection으로 각 정의된 부분 연결
+
 addWeighted로 원본 이미지와 결합 후 반환
+
 draw_face_connections, draw_hand_connections: 아직 구현 안됐으므로 에러 발생
+
 _draw_connection 함수 (helper 함수): x1, y1, v1 = point1 / x2, y2 v2 = point2: 시작점과 끝점의 x, y 좌표 및 표시 여부를 각각 저장
+
 if v1 and v2: 시작점과 끝점의 표시 여부가 모두 True일 때만 선을 그림.
-cv2의 line을 이용하여 이미지에 시작점에서 끝점까지 선을 그림
-그려진 이미지 return 
+
+cv2의 line을 이용하여 이미지에 시작점에서 끝점까지 선을 그림. 그려진 이미지 return 
 
 ### 2. 실행파일 (demo.py 분석)
 1) 필요 라이브러리, 모듈 import:  cv2로 이미지 처리, estimator.py의 BodyPoseEstimator 클래스를 불러와 신체 키 포인트 추정에 사용, utils.py의 draw_keypoints/draw_body_connections를 불러와 이미지 위에 키포인트와 관절 연결을 그림
