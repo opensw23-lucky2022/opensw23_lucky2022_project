@@ -96,7 +96,7 @@ python setup.py install
 
 
 ## 실행 examples
-프로젝트 root에서 아래 command를 차례대로 실다한다.
+프로젝트 root에서 아래 command를 차례대로 실한다.
 ```
 cd examples
 python image.py --image_filename example.jpg --save_option Y //사진 example 생성
