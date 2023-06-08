@@ -122,11 +122,8 @@ python이나 python3 둘다 해도 실행가능
   
   |-- utils.py
  
-      |-- 공통 기능 제공
+       |-- 공통 기능 제공 (배열 조작, FPS 계산)
         
-             |-- 배열 조작
-                
-             |-- FPS 계산
                 
 ---
 ## Results/Results Analysis
