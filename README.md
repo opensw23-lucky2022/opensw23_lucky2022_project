@@ -74,7 +74,7 @@ time
 
 ## Installation
 #### 사전 준비
-Torch 를 깔아줍니다
+Torch 를 깔아준다.
 ```
 pip3 install torch torchvision torchaudio
 ```
@@ -96,7 +96,7 @@ python setup.py install
 
 
 ## 실행 examples
-프로젝트 root에서 아래 command를 차례대로 실행합니다.
+프로젝트 root에서 아래 command를 차례대로 실다한다.
 ```
 cd examples
 python image.py --image_filename example.jpg --save_option Y //사진 example 생성
@@ -108,7 +108,7 @@ cd examples
 python3 image.py --image_filename example.jpg --save_option Y //사진 example 생성
 python3 video.py --video_filename example.mp4 --save_option Y //비디오 example 생성
 ```
-python이나 python3 둘다 해도 실행가능합니다
+python이나 python3 둘다 해도 실행가능
 ## Results
 ```
 python image.py --image_filename example.jpg --save_option Y
@@ -123,7 +123,7 @@ python video.py --video_filename example.mp4 --save_option Y
 위 코드 실행시<br>
 ![image](https://github.com/Team-Lucky2022/openpose_pytorch/assets/74056843/698e3c58-b113-4760-9842-a3dd04850c63)
 
-위와 같은 결과가 나오면 examples 실행 성공입니다.
+위와 같은 결과가 나오면 examples 실행 성공
 
 ---
 
@@ -227,6 +227,7 @@ if(save_option == 'Y'):
 #### <실행결과>
 ![스크린샷 2023-06-07 171511](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/7b7cc23e-7144-4eb9-a25e-c3a1bcac2b85)
 ![스크린샷 2023-06-07 164451](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/8d6c47c6-7b59-4056-9449-3dd2979a8ee9)
+
 (노란색: 사진 속 인물들의 수,  선홍색: 시행횟수,  주황색: 평균 프로그램 런타임)
 
 #### <실행결과 분석>
@@ -280,7 +281,7 @@ if(save_option == 'Y'):
 
 ## Team Introduction
 * 길윤빈 202211259 : 팀장(코드 작성 및 실행 데이터 수집/ 정리) 
-* 박세준 202011295 : 팀원(전체 피드백 및 발표)
+* 박세준 202011295 : 팀원(전체 피드백 및 발표 자료 작성/ 발표)
 * 장지은 202211363 : 팀원(코드 분석 및 보고서 작성)
 * 정소현 202211368 : 팀원(결과 분석 및 보고서 작성)
 
