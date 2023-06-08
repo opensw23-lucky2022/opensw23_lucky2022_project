@@ -80,8 +80,10 @@ python setup.py install
 ```
 
 
-## 실행 examples
+## 실행
 프로젝트 root에서 아래 command를 차례대로 실한다.
+
+*`dataset`에 있는 이미지와 동영상을 사용하려면 미디어를 ./examples/input 디렉토리에 복사 또는 이동 후 명령어를 실행하세요.*
 ```
 cd examples
 python image.py --image_filename example.jpg --save_option Y //사진 example 생성
