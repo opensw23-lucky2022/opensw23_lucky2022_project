@@ -102,7 +102,7 @@ python이나 python3 둘다 해도 실행가능
   |     |-- 사용자 인터페이스 관리
   |     |-- 인자 처리 및 실행 설정
   |
-  |-- body/estimator.py
+  | -- body/estimator.py
   |     |-- 신체 키포트 추정 기능
   |
   |-- body/model.py
