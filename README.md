@@ -158,9 +158,9 @@ python이나 python3 둘다 해도 실행가능
 *  결과분석
 
 #### <실행결과_image>
-![스크린샷 2023-06-08 224926](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/6283891b-600f-42a9-8528-f63c63e909bb)
-![스크린샷 2023-06-08 224916](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/c17c671e-a143-43eb-89a4-1dab9657639c)
 ![스크린샷 2023-06-08 224909](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/f98a86fc-7e45-454f-9995-cb180aef862f)
+![스크린샷 2023-06-08 224916](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/c17c671e-a143-43eb-89a4-1dab9657639c)
+![스크린샷 2023-06-08 224926](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/6283891b-600f-42a9-8528-f63c63e909bb)
 ![스크린샷 2023-06-08 225601](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/28a27f19-9e62-4deb-8cfa-6b760fcff176)
 
 (31명)
@@ -172,7 +172,6 @@ python이나 python3 둘다 해도 실행가능
 
 ![스크린샷 2023-06-08 223532](https://github.com/opensw23-lucky2022/opensw23_lucky2022_project/assets/127183125/458e6383-2f7f-40ef-92e1-6ba9cb29e91c)
 
-(노란색: 사진 속 인물들의 수,  선홍색: 시행횟수,  주황색: 평균 프로그램 런타임)
 
 #### <실행결과 분석>
 이 그래프의 x축은 사진 속 인물들의 수, y축은 x값에 따른 프로그램의 런타임을 나타낸다. 파란색 그래프는 점들의 값을 4차 다항식으로 보간한 그래프이다.
