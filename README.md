@@ -96,7 +96,7 @@ python이나 python3 둘다 해도 실행가능
 
 ## Analysis(openpose 코드 분석)
 
-1) 주요 파일들
+주요 파일들
 
   |
   
