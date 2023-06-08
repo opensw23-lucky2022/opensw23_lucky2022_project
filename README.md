@@ -13,6 +13,8 @@
 * [Results/Results Analysis](#results-results-analysis)
 * [Visualization](#visualization)
 * [Team Introduction](#team-introduction)
+* [Improvement](#improvement)
+* [Suggestion](#suggestion)
 
 ---
 
@@ -239,6 +241,16 @@ height, width, _ = image_src.shape
     else:
         resized_image = image_src
 ```
+
+---
+## Improvement
+* 실행결과의 저장이 안되어 따로 output 디렉토리에 저장되게 코드 수정
+* 이미지가 특정 사이즈를 넘어가면 사진이 잘려서 출력되는 등의 버그가 있어 이미지 크기를 비율에 맞게 수정되도록 코드 추가
+
+
+## Suggestion
+* 이미지에서 다수의 인원을 한 인물의 관절로 이어버리는 문제 개선 필요
+
 
 ---
 ## References
